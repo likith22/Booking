@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.ola.booking.exceptions.NoAvailableRidersException;
 import com.ola.booking.repository.BookingHistoryRepository;
 import com.ola.booking.template.BookingDetails;
 import com.ola.booking.template.BookingHistoryTemplate;
@@ -33,6 +34,10 @@ public class RideBookingServiceImplementation implements RideBookingService {
 	public BookingDetails rideBooking(String userName, String currentLocation, String destination) {
 		//getting available user list.
 		RiderTemplate[] availableRiders =  restCall.getForObject("http://localhost:8091/api/v1/registration/dataRequest/availableRiders", RiderTemplate[].class);
+		//checking if availableriders are empty
+		if(availableRiders.length == 0) {
+			throw new NoAvailableRidersException("No Available riders");
+		}
 		//finding the least id:
 		
 		List<RiderTemplate> riders = Arrays.asList(availableRiders);
