@@ -1,8 +1,5 @@
 package com.ola.booking.repository;
 
-import java.sql.Date;
-import java.sql.Time;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
