@@ -14,8 +14,15 @@ public class BookingHistoryTemplate {
 	private String destination;
 	private Date bookingDate;
 	private Time bookingTime;
+	private String bookingStatus;
 	
 	
+	public String getBookingStatus() {
+		return bookingStatus;
+	}
+	public void setBookingStatus(String bookingStatus) {
+		this.bookingStatus = bookingStatus;
+	}
 	public int getTransaction_id() {
 		return transaction_id;
 	}
@@ -69,6 +76,7 @@ public class BookingHistoryTemplate {
 		transaction.setDestination(template.getDestination());
 		transaction.setBookingDate(template.getBookingDate());
 		transaction.setBookingTime(template.getBookingTime());
+		transaction.setBookingStatus(template.getBookingStatus());
 		
 		return transaction;
 	}

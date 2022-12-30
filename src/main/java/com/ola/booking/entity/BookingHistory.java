@@ -29,8 +29,15 @@ public class BookingHistory {
 	private Date bookingDate;
 	@Column(name = "booking_time")
 	private Time bookingTime;
+	@Column(name = "booking_status")
+	private String bookingStatus;
 	
-	
+	public String getBookingStatus() {
+		return bookingStatus;
+	}
+	public void setBookingStatus(String bookingStatus) {
+		this.bookingStatus = bookingStatus;
+	}
 	public int getTransaction_id() {
 		return transaction_id;
 	}
@@ -84,6 +91,7 @@ public class BookingHistory {
 		template.setDestination(transaction.getDestination());
 		template.setBookingDate(transaction.getBookingDate());
 		template.setBookingTime(transaction.getBookingTime());
+		template.setBookingStatus(transaction.getBookingStatus());
 		
 		return template;
 	}

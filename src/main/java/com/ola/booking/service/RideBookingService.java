@@ -9,4 +9,5 @@ public interface RideBookingService {
 	
 	public BookingDetails rideBooking(String userName,String currentLocation
 			,String destination);
+	public void updateStatus(int transactionId,String status);
 }
